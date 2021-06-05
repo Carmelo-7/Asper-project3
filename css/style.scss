@@ -15,6 +15,27 @@ $primary-color:#047aed;
 
 }
 
+@keyframes slideinright{
+    from{
+        transform: translateX(-200px) translateY(100px);
+        
+    }
+    to{
+        transform: translateX(0px) translateY(100px);
+         
+    }
+}
+@keyframes slideinleft{
+    from{
+        transform: translateX(200px) translateY(-50px);
+        
+    }
+    to{
+        transform: translateX(0px) translateY(-50px);
+         
+    }
+}
+
 *{
     margin:0;
     padding: 0;
@@ -22,7 +43,7 @@ $primary-color:#047aed;
     font-family: 'Lato',sans-serif;
 }
 body{
-    height: 10vh;
+    height: 100vh;
     width: 100%;
     line-height: 1.6;
 }
@@ -33,6 +54,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     @include other_screens(500px){
         flex-direction: row;
         justify-content: space-around;
@@ -63,6 +85,7 @@ body{
             text-decoration: none;
             color: inherit;
             margin: 20px;
+            transition: border-bottom 0.08s ease-in;
             &:hover{
                 border-bottom:2px solid whitesmoke ;
             }
@@ -85,10 +108,17 @@ body{
         justify-content: space-between;
        padding:3rem 7rem;
        height: auto;
+       gap: 2rem;
     }
     .info{
         display: flex;
         flex-direction: column;
+      
+        @include other_screens(768px){
+            transform: translateY(100px);
+            animation: slideinright 0.5s ease-in;
+            animation-fill-mode: forwards;
+        }
     h1{
         text-align: center;
         margin-bottom: 1rem;
@@ -96,6 +126,7 @@ body{
         font-size: 40px;
         @include other_screens(768px){
            text-align: left;
+           
         }
     }
     p{
@@ -129,17 +160,18 @@ body{
     .showcase-form{
         background-color: white;
         border-radius: 15px;
-        box-shadow: 0 0 5px #4b4b4b;
+        box-shadow: 0 0 15px silver;
         margin:5rem auto;
         padding: 2.5rem;
         padding-top: 3rem;
         width: 300px;
         z-index: 99;
         position: relative;
-       
         @include other_screens(768px){
            width: fit-content;
-           transform: translateY(-100px) translateX(20px);
+           transform: translateY(-50px) translateX(20px);
+           animation: slideinleft 0.5s ease-in;
+            animation-fill-mode: forwards;
         }
    
         h2{
@@ -183,7 +215,8 @@ body{
         right: 0;
         z-index: 1;
         @include other_screens(768px){
-           bottom: -70px;
+           bottom: -40px;
+           height: 289px;
         }
     }
 
@@ -199,12 +232,32 @@ section.stats{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    div.stat{
+    @include other_screens(768px){
+        top: 60px;
+    }
+    h3{
+        text-align: center;
+        margin:50px auto;
+        font-weight: 600;
+        max-width: 400px;
+        @include other_screens(768px){
+            max-width: 80%;
+            font-size: 1.5em;
+        }
+     }
+    div.flex-container2{
+        @include other_screens(768px){
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        div.stat{
         margin: 3rem;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
         align-items: center;
+        
         h2{
             text-align: center;
             font-weight: 600;
@@ -218,11 +271,36 @@ section.stats{
          }
          
     }
-    div.npm img{
-        width: 100%;
-        height: 100%;
-    }
+  }
+}
+div.flex-container3{
+        @include other_screens(768px){
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 0 4.5rem;
+           align-items: center;
+            gap: 2rem;
+        }
+        div.npm{
+            @include other_screens(768px){
+                height: min-content;
+             }
+        img{
+            width: 100%;
+            height: 100%;
+            
+        }
+        
+        
+        
+       }
     div.features{
+        @include other_screens(768px){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    div.feature{
         text-align: left;
         box-shadow: 0 3px 10px silver;
         background-color: white;
@@ -230,16 +308,15 @@ section.stats{
         margin: 2.5rem 0 0 0;
         width: 100%;
         padding:20px ;
+        @include other_screens(768px){
+            text-align: center;
+        }
+        
 
     }
-    h3{
-        text-align: center;
-        margin:50px auto;
-        font-weight: 600;
-        max-width: 400px;
+   }
     
-     }
-   
+    
    
 }
 
@@ -251,6 +328,14 @@ section.showcase2{
     overflow: auto;
     padding: 0 40px;
     text-align: center;
+    @include other_screens(768px){
+        display: grid;
+        justify-content: space-around;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 0 110px;
+        align-items: center;
+    }
     h1{
         font-size: 3rem;
         margin: 3rem 0 20px 0;
@@ -278,6 +363,9 @@ section.showcase2{
     img{
         width: 100%;
         height: auto;
+        @include other_screens(768px){
+            height: 90%;
+        }
     }
 }
 
@@ -321,6 +409,12 @@ footer{
     min-width: 100%;
     padding: 20px 40px;
     background-color: #002240;
+    @include other_screens(768px){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       height: max-content;
+    }
     .branding{
         h1,h4{
             font-weight: 300;
@@ -342,9 +436,16 @@ footer{
         display: flex;
         justify-content: space-between;
         width: 50%;
+        @include other_screens(768px){
+           justify-content: flex-start;
+
+        }
     a{
         color: white;
         text-decoration: none;
+        @include other_screens(768px){
+            margin: 2rem;
+        }
     }
    }  
     a:hover{
