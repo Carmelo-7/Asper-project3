@@ -1,5 +1,7 @@
 $primary-color:#047aed;
 $light-color:#f4f4f4;
+$success-color: #5cb85c;
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 @mixin other_screens($viewport){
@@ -7,6 +9,13 @@ $light-color:#f4f4f4;
         @content;
     }
 
+}
+
+@mixin btn_hover () {
+    &:hover{
+    transform: scale(0.98);
+    font-weight: 700;
+  }
 }
 
 *{
@@ -21,7 +30,6 @@ body{
     line-height: 1.6;
     background-color: $light-color;
 }
-
 
 //<--------------HEADER------------------>
 
@@ -87,13 +95,12 @@ body{
     padding: 3rem;
     @include other_screens(768px){
         display: flex;
-        justify-content: center;
-       padding:3rem 3rem;
+        justify-content: space-between;
        height: auto;
     }
     @include other_screens(1120px){
         justify-content: space-between;
-        padding: 3rem 5.5rem;
+        padding: 3rem 6.2rem;
     }
     .info{
         display: flex;
@@ -127,13 +134,14 @@ body{
         }
     }
   }
-  .server{
+  .docs{
       height:auto ;
       width: 200px;
       margin: 2rem auto;
       @include other_screens(768px){
-          width: 250px;
-          margin :-20px auto;
+          width: 200px;
+          height: 200px;
+          margin :-20px 30px 0 0;
       }
       img{
           width: 100%;
@@ -143,106 +151,151 @@ body{
   }    
 }
 
-section.about{
-    padding: 0 40px;
-    background-color: $light-color;
-    @include other_screens(768px){
-        display: flex;
-        gap: 10rem;
-        justify-content: space-around;
-        padding: 0 100px;
-    }
-    div{
-    h1{
-        text-align: center;
-        margin: 2.3rem 0 0 0;
-        font-weight: 300;
-        font-size: 2rem;
-        @include other_screens(768px){
-            text-align: left;
-        }
-    }
-    p{
-        text-align: center;
-        @include other_screens(768px){
-            text-align: left;
-        }
-    }
-  }  
-    .server2{
-        margin: 30px auto 0 auto;
-        width: 300px;
-        @include other_screens(768px){
-            width: 80pc;
-            margin-right: 4rem;
-        }
-    img{
-        width: 100%;
-        height: 100%;
-    }
-   } 
-   
-}
+main{
 
-.features{
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    padding: 2.5rem 0;
-    margin:26px 0;
-    margin-bottom: 0;
+    align-items: center;
+    padding :3rem 0;
 
     @include other_screens(768px){
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        &>div:first-of-type{
-            min-width: 90%;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+
+    }
+    .container-light{
+        background-color: $light-color;
+        padding: 2rem;
+        margin: 10px 10%;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+        @include other_screens(768px){
+            margin-right: 3rem;
+            width: 33.33333%;
+    
+        }
+
+        .deployment-container,.essentials-container{
+            background: transparent;
+            h3{
+                color: black;
+                margin: 20px 0;
+            }
+            ul.deployments,ul.essentials{
+                list-style: none;
+                
+                li{
+                    padding-bottom: 5px;
+                    margin-bottom: 5px;
+                    border-bottom: 1px solid #ccc;
+
+                a{
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 300;
+                    font-size: 17px;
+                    &.active{
+                        color: $primary-color;
+                    }
+
+                    &:hover{
+                        font-weight: 600;
+                    }
+                   
+                }
+              } 
+
+
+            }
         }
     }
- div{
-     display: flex;
-     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-     margin: 10px 40px;
-     justify-content: space-around;
-     align-items: center;
-     padding: 20px;
-     border-radius: 10px;
 
-     @include other_screens(768px){
-        &:nth-child(1){
-            grid-column: 1/4;
+    .container-white{
+        background-color:#fff;
+        padding: 20px;
+        margin: 10px 10%;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+        @include other_screens(768px){
+            margin-left: 0;
+    
         }
 
-        &:nth-child(2){
-            grid-column: 1/3;
+        .intro{
+
+            h2{
+                margin:10px 0;
+                font-weight: 300;
+            }
+
+            p{
+                margin: 10px 0;
+            }
         }
 
-        &:nth-child(3){
-            grid-column: 3/4;
+        .green-info{
+            background-color: $success-color;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 15px 0;
+
+            i{
+                color: #fff;
+                margin-right: 10px ;
+            }
         }
 
-        &:nth-child(4){
-            grid-column: 1/2;
+        .dummy,.requirements,.install{
+            h3{
+                margin: 20px 0;
+
+            }
+
+            p{
+                margin: 10px 0;
+            }
         }
 
-        &:nth-child(5){
-            grid-column: 2/3;
-        }
+        .install .terminal{
+            background: #333;
+            color: white;
 
-        &:nth-child(6){
-            grid-column: 3/4;
-        }
-    }     
-     
-     p{
-         text-align: left;
-         margin: 10px 0 10px 0px;
-     }
-     i{
-         margin-right: 20px;
+            pre,code{
+                 padding:10px;
+                 font-size: 0.9em;
+                 font-family: 'Courier New', Courier, monospace;
+            }
+        } 
 
-     }
- }
+
+        .dummy{
+
+            .btn{
+                width:130px;
+                white-space: nowrap;
+                border: 1px solid white;
+                padding: 10px 30px;
+                margin:20px 0;
+                text-align: center;
+                border-radius: 5px;
+                display: block;
+                text-decoration: none;
+                color: white;
+                background: $primary-color;
+                transition:all 80ms ease;
+                @include btn_hover();
+        
+            }
+        }
+    }
 }
-
 
 footer{
     color: white;

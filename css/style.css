@@ -90,7 +90,16 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 7rem;
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .flex-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 7.5rem;
   }
 }
 
@@ -120,15 +129,18 @@ body {
   }
 }
 
-.flex-container ul li a {
-  text-decoration: none;
-  color: inherit;
-  margin: 20px;
+.flex-container ul li {
   -webkit-transition: border-bottom 0.08s ease-in;
   transition: border-bottom 0.08s ease-in;
 }
 
-.flex-container ul li a:hover {
+.flex-container ul li a {
+  text-decoration: none;
+  color: inherit;
+  margin: 20px;
+}
+
+.flex-container ul li:hover {
   border-bottom: 2px solid whitesmoke;
 }
 
@@ -562,33 +574,33 @@ section.showcase2 img {
 }
 
 footer {
-  position: relative;
-  top: 200px;
   color: white;
   min-width: 100%;
   padding: 20px 40px;
   background-color: #002240;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1155px) {
   footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
+    height: 35vh;
+    gap: 20pc;
   }
 }
 
 footer .branding h1, footer .branding h4 {
   font-weight: 300;
+}
+
+@media screen and (min-width: 1155px) {
+  footer .branding {
+    margin-left: 4rem;
+  }
 }
 
 footer div {
@@ -608,9 +620,8 @@ footer .social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 50%;
 }
 
@@ -629,7 +640,7 @@ footer .social a {
 
 @media screen and (min-width: 768px) {
   footer .social a {
-    margin: 2rem;
+    margin: 1rem;
   }
 }
 

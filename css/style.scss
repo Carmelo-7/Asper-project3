@@ -47,7 +47,10 @@ body{
     width: 100%;
     line-height: 1.6;
 }
-.flex-container{ //for less than 500px vh
+
+//<--------------HEADER------------------>
+
+.flex-container{ //for less than 500px vh 
     background-color: $primary-color;
     color: white;
     display: flex;
@@ -62,7 +65,11 @@ body{
     }
     @include other_screens(768px){
            justify-content: space-between;
-           padding: 0 7rem;
+           padding: 0 3rem;
+    }
+    @include other_screens(1120px){
+        justify-content: space-between;
+        padding: 0 7.5rem;
     }
     h1{
         font-weight: 100;
@@ -81,15 +88,20 @@ body{
             background-color: transparent;
         }
          
-        li a{
+        li{
+            transition: border-bottom 0.08s ease-in;
+         a{
             text-decoration: none;
             color: inherit;
             margin: 20px;
-            transition: border-bottom 0.08s ease-in;
-            &:hover{
-                border-bottom:2px solid whitesmoke ;
-            }
+            
+           
         }
+
+        &:hover{
+            border-bottom:2px solid whitesmoke ;
+        }
+      } 
     }
 
 }
@@ -403,21 +415,25 @@ section.showcase2{
 }
 
 footer{
-    position: relative;
-    top: 200px;
     color: white;
     min-width: 100%;
     padding: 20px 40px;
     background-color: #002240;
-    @include other_screens(768px){
+    @include other_screens(1155px){
         display: flex;
-        justify-content: space-between;
         align-items: center;
-       height: max-content;
+       height: 35vh;
+       gap: 20pc;
     }
     .branding{
+       
         h1,h4{
             font-weight: 300;
+        }
+
+        @include other_screens(1155px){
+            margin-left:4rem ;
+
         }
 
     }
@@ -434,7 +450,7 @@ footer{
     }
     .social{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 50%;
         @include other_screens(768px){
            justify-content: flex-start;
@@ -444,7 +460,7 @@ footer{
         color: white;
         text-decoration: none;
         @include other_screens(768px){
-            margin: 2rem;
+            margin: 1rem;
         }
     }
    }  
@@ -453,5 +469,4 @@ footer{
         
     }
 }
-
 
