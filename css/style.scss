@@ -419,6 +419,8 @@ footer{
     min-width: 100%;
     padding: 20px 40px;
     background-color: #002240;
+    position: relative;
+    top:170px;
     @include other_screens(1155px){
         display: flex;
         align-items: center;

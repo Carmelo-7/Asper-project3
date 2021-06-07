@@ -578,6 +578,8 @@ footer {
   min-width: 100%;
   padding: 20px 40px;
   background-color: #002240;
+  position: relative;
+  top: 170px;
 }
 
 @media screen and (min-width: 1155px) {
