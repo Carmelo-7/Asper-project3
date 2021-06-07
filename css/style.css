@@ -245,10 +245,11 @@ body {
   border-radius: 15px;
   -webkit-box-shadow: 0 0 15px silver;
           box-shadow: 0 0 15px silver;
-  margin: 5rem auto;
+  margin: 5rem 0;
+  margin-top: 3.5rem;
   padding: 2.5rem;
   padding-top: 3rem;
-  width: 300px;
+  width: 100%;
   z-index: 99;
   position: relative;
 }
